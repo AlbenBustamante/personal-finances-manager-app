@@ -5,6 +5,21 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text("Home"));
+    return Scaffold(
+      appBar: AppBar(title: const Text("Personal Finances Manager")),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 16.0),
+        child: Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              FilledButton(onPressed: () {}, child: const Text("Add turn")),
+              FilledButton(onPressed: () {}, child: const Text("Add income")),
+              FilledButton(onPressed: () {}, child: const Text("Add expense"))
+            ],
+          )
+        )
+      )
+    );
   }
 }
