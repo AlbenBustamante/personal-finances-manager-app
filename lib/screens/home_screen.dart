@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:personal_finances_manager/screens/new_expense_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -15,7 +16,11 @@ class HomeScreen extends StatelessWidget {
             children: [
               FilledButton(onPressed: () {}, child: const Text("Add turn")),
               FilledButton(onPressed: () {}, child: const Text("Add income")),
-              FilledButton(onPressed: () {}, child: const Text("Add expense"))
+              FilledButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const NewExpenseScreen()));
+                },
+                child: const Text("Add expense"))
             ],
           )
         )
