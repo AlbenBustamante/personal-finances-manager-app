@@ -1,4 +1,4 @@
-class ExpenseData {
+class ExpenseOrIncomeData {
   String id;
   String description;
   int value;
@@ -7,7 +7,7 @@ class ExpenseData {
   DateTime createdAt;
   DateTime updatedAt;
 
-  ExpenseData({
+  ExpenseOrIncomeData({
     required this.id,
     required this.description,
     required this.value,
@@ -17,7 +17,7 @@ class ExpenseData {
     required this.updatedAt
   });
 
-  factory ExpenseData.fromJson(Map<String, dynamic> json) => ExpenseData(
+  factory ExpenseOrIncomeData.fromJson(Map<String, dynamic> json) => ExpenseOrIncomeData(
     id: json['_id'],
     description: json['description'],
     value: json['value'],

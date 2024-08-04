@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:personal_finances_manager/screens/new_expense_screen.dart';
+import 'package:personal_finances_manager/screens/new_expense_or_income_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -12,15 +12,17 @@ class HomeScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 16.0),
         child: Center(
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              FilledButton(onPressed: () {}, child: const Text("Add turn")),
-              FilledButton(onPressed: () {}, child: const Text("Add income")),
+              FilledButton(onPressed: () {}, child: const Text("Turn")),
               FilledButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const NewExpenseScreen()));
+                  Navigator.push(
+                    context, 
+                    MaterialPageRoute(builder: (context) => const NewExpenseOrIncomeScreen())
+                  );
                 },
-                child: const Text("Add expense"))
+                child: const Text("Expense / Income"))
             ],
           )
         )

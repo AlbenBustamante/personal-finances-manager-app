@@ -1,11 +1,11 @@
-class CreateExpenseData {
+class CreateExpenseOrIncomeData {
   String description;
   int value;
   String category;
   String userId;
   DateTime date;
 
-  CreateExpenseData({
+  CreateExpenseOrIncomeData({
     required this.description,
     required this.value,
     required this.category,

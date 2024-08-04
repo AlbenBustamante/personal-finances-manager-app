@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:personal_finances_manager/screens/main_screen.dart';
-import 'package:personal_finances_manager/viewmodels/new_expense_viewmodel.dart';
+import 'package:personal_finances_manager/viewmodels/new_expense_or_income_viewmodel.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => NewExpenseViewModel())
+        ChangeNotifierProvider(create: (context) => NewExpenseOrIncomeViewModel())
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
