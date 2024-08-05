@@ -10,6 +10,7 @@ class NewExpenseOrIncomeViewModel extends ViewModel {
   final _descriptionController = TextEditingController();
   final _valueController = TextEditingController();
   final _categoryController = TextEditingController();
+  final _today = DateTime.now();
   final List<String> _types = ["Expense", "Income"];
 
   String _title = "New expense";
@@ -50,9 +51,9 @@ class NewExpenseOrIncomeViewModel extends ViewModel {
   Future<void> pickDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
-      initialDate: DateTime.now(),
+      initialDate: _selectedDate,
       firstDate: DateTime(2024),
-      lastDate: _selectedDate
+      lastDate: _today
     );
 
     if (picked != null) {
