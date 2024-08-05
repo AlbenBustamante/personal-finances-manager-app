@@ -3,4 +3,5 @@ class ApiConstants {
   static const users = "$apiUrl/users";
   static const expenses = "$apiUrl/expenses";
   static const income = "$apiUrl/income";
+  static const turns = "$apiUrl/turns";
 }

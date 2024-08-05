@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:personal_finances_manager/models/create_expense_or_income_data.dart';
-import 'package:personal_finances_manager/services/auth_service.dart';
 import 'package:personal_finances_manager/services/expense_or_income_service.dart';
 import 'package:personal_finances_manager/viewmodels/viewmodel.dart';
 
@@ -33,8 +32,7 @@ class NewExpenseOrIncomeViewModel extends ViewModel {
           description: _descriptionController.text.trim(),
           value: int.parse(_valueController.text.trim()),
           category: _categoryController.text.trim(),
-          date: _selectedDate,
-          userId: authService.getCurrentUserId()
+          date: _selectedDate
         )
       );
 

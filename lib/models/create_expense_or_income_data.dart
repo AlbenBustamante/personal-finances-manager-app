@@ -2,14 +2,14 @@ class CreateExpenseOrIncomeData {
   String description;
   int value;
   String category;
-  String userId;
+  String? userId;
   DateTime date;
 
   CreateExpenseOrIncomeData({
     required this.description,
     required this.value,
     required this.category,
-    required this.userId,
+    this.userId,
     required this.date
   });
 

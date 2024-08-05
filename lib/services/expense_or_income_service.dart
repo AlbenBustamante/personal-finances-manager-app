@@ -2,15 +2,18 @@ import 'dart:convert';
 
 import 'package:personal_finances_manager/models/create_expense_or_income_data.dart';
 import 'package:personal_finances_manager/models/expense_or_income_data.dart';
+import 'package:personal_finances_manager/services/auth_service.dart';
 import 'package:personal_finances_manager/util/api_constants.dart';
 import "package:http/http.dart" as http;
 
 class _ExpenseOrIncomeService {
-  Future<ExpenseOrIncomeData> create(bool expense, CreateExpenseOrIncomeData createExpenseData) async {
+  Future<ExpenseOrIncomeData> create(bool expense, CreateExpenseOrIncomeData createExpenseOrIncomeData) async {
+    createExpenseOrIncomeData.userId = authService.getCurrentUserId();
+
     final uri = Uri.parse(expense ? ApiConstants.expenses : ApiConstants.income);
     final response = await http.post(uri,
       headers: {"Content-Type": "application/json"},
-      body: jsonEncode(createExpenseData.toJson())
+      body: jsonEncode(createExpenseOrIncomeData.toJson())
     );
 
     if (response.statusCode != 201) {
