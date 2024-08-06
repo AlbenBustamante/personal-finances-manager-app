@@ -43,7 +43,7 @@ class NewTurnScreen extends StatelessWidget {
                     },
                   ),
                   TextFormField(
-                    controller: viewModel.finalHourController,
+                    controller: viewModel.initialBreakHourController,
                     readOnly: true,
                     decoration: const InputDecoration(
                       labelText: "Start Break Hour",

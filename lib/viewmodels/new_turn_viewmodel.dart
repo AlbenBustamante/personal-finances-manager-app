@@ -114,7 +114,7 @@ class NewTurnViewModel extends ViewModel {
   Future<void> pickFinalBreakHour(BuildContext context) async {
     final picked = await showTimePicker(
       context: context, 
-      initialTime: _finalBreakHour
+      initialTime: _initialBreakHour
     );
 
     if (picked != null) {
