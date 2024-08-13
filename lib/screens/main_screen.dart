@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:personal_finances_manager/screens/expenses_or_income_screen.dart';
 import 'package:personal_finances_manager/screens/home_screen.dart';
-import 'package:personal_finances_manager/screens/reports_screen.dart';
+import 'package:personal_finances_manager/screens/turns_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -14,7 +15,8 @@ class _MainScreenState extends State<MainScreen> {
 
   static const _screens = <Widget>[
     HomeScreen(),
-    ReportsScreen()
+    ExpensesOrIncomeScreen(),
+    TurnsScreen()
   ];
 
   @override
@@ -30,7 +32,8 @@ class _MainScreenState extends State<MainScreen> {
         },
         destinations: const [
           NavigationDestination(icon: Icon(Icons.home_outlined), selectedIcon: Icon(Icons.home), label: 'Home'),
-          NavigationDestination(icon: Icon(Icons.list_outlined), selectedIcon: Icon(Icons.list_sharp), label: 'Reports')
+          NavigationDestination(icon: Icon(Icons.attach_money_outlined), selectedIcon: Icon(Icons.attach_money), label: 'Expense or Icon'),
+          NavigationDestination(icon: Icon(Icons.work_outlined), selectedIcon: Icon(Icons.work), label: 'Turns')
         ],
       ),
     );
