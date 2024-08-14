@@ -1,9 +1,9 @@
 import 'dart:convert';
 
+import 'package:http/http.dart' as http;
 import 'package:personal_finances_manager/models/turn_data.dart';
 import 'package:personal_finances_manager/services/auth_service.dart';
 import 'package:personal_finances_manager/util/api_constants.dart';
-import 'package:http/http.dart' as http;
 
 class _UserService {
   Future<List<TurnData>> getTurns() async {
@@ -18,9 +18,9 @@ class _UserService {
       throw jsonDecode(response.body);
     }
 
-    final turnsMap = jsonEncode(response.body) as Map<String, Map<String, dynamic>>;
-    
-    return turnsMap.values.map<TurnData>((turn) => TurnData.fromJson(turn)).toList();
+    final List<dynamic> data = json.decode(response.body);
+
+    return data.map((turn) => TurnData.fromJson(turn)).toList();
   }
 }
 

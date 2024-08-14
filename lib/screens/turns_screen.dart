@@ -31,28 +31,28 @@ class _TurnsScreenState extends State<TurnsScreen> {
             return const Center(child: CircularProgressIndicator());
           }
 
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(onPressed: () async {}, child: const Text("New Expense / Income")),
-              RefreshIndicator(
-                key: _refreshKey,
-                onRefresh: () async {
-                  _refreshKey.currentState?.show();
-                  await viewModel.loadTurns();
-                },
-                child: ListView.builder(
-                  itemCount: viewModel.turns.length,
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      title: Text(DateFormat('dd-MM-yyyy').format(viewModel.turns[index].date))
-                    );
-                  }
-                ))
-            ],
+          return RefreshIndicator(
+            key: _refreshKey,
+            onRefresh: () async {
+              _refreshKey.currentState?.show();
+              await viewModel.loadTurns();
+            },
+            child: ListView.builder(
+              itemCount: viewModel.turns.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(DateFormat('dd-MM-yyyy').format(viewModel.turns[index].date))
+                );
+              }
+            )
           );
         },
-      )
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        tooltip: "New Turn",
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
